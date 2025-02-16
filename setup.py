@@ -32,7 +32,7 @@ setup(
         },
     keywords='templating OpenDocument PDF',
     license="GPL License",
-    version=get_version(),
+    version=get_version() + "+jpone",
     packages=find_packages(exclude=['examples']),
     package_data={
         'relatorio.tests': [
@@ -45,9 +45,13 @@ setup(
         "lxml >= 2.0"
     ],
     extras_require={
-        'chart': ['pycha >= 0.4.0', 'pyyaml'],  # pycairo
+        'chart': [
+            'pycha @ git+https://github.com/BonaFideIT/pycha3.git',
+            'pyyaml == 5.3.1',
+            'pycairo'
+        ],
         'fodt': ['python-magic'],
-        },
+    },
     classifiers=[
         "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
