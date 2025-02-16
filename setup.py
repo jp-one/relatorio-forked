@@ -4,6 +4,7 @@ import re
 
 from setuptools import find_packages, setup
 
+FORKED_VERSION = "+jpone" + "0.1.2"
 
 def read(fname):
     return codecs.open(
@@ -32,7 +33,7 @@ setup(
         },
     keywords='templating OpenDocument PDF',
     license="GPL License",
-    version=get_version() + "+jpone",
+    version=get_version() + FORKED_VERSION,
     packages=find_packages(exclude=['examples']),
     package_data={
         'relatorio.tests': [
