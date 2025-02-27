@@ -15,7 +15,7 @@ try:
     import pycha.bar
     import pycha.line
     import pycha.pie
-    import yaml
+    from yaml import safe_load
 
     PYCHA_TYPE = {'pie': pycha.pie.PieChart,
                   'vbar': pycha.bar.VerticalBarChart,
@@ -23,7 +23,7 @@ try:
                   'line': pycha.line.LineChart,
                  }
 except ImportError:
-    yaml = cairo = None
+    safe_load = cairo = None
     PYCHA_TYPE = {}
 _encode = genshi.output.encode
 
@@ -57,7 +57,7 @@ class CairoSerializer:
         else:
             result = out
         yml = StringIO(_encode(self.text_serializer(stream)))
-        chart_yaml = yaml.load(yml.read())
+        chart_yaml = safe_load(yml.read())
         chart_info = chart_yaml['chart']
         chart_type = chart_info['output_type']
         if chart_type == 'png':

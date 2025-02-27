@@ -4,7 +4,7 @@ import re
 
 from setuptools import find_packages, setup
 
-FORKED_VERSION = "+jpone" + "0.1.3"
+FORKED_VERSION = "+jpone" + "0.1.4"
 
 def read(fname):
     return codecs.open(
@@ -48,7 +48,7 @@ setup(
     extras_require={
         'chart': [
             'pycha @ git+https://github.com/jp-one/pycha3-forked.git',
-            'pyyaml == 5.3.1',
+            'pyyaml',
             'pycairo'
         ],
         'fodt': ['python-magic'],
